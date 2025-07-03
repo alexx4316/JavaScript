@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestion API</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="./gestion_api.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <div class="contenedor">
+        <h2>Gestión de Productos</h2>
+        <input type="text" id="id" placeholder="ID (para actualizar o eliminar)"/>
+        <input type="text" id="nombre" placeholder="Nombre del producto" />
+        <input type="number" id="precio" placeholder="Precio del producto" />
+
+        <button onclick="agregarProducto()">Agregar</button>
+        <button onclick="verProductos()">Ver productos</button>
+        <button onclick="actualizarProducto()">Actualizar</button>
+        <button onclick="eliminarProducto()">Eliminar</button>
+
+        <div class="mensaje" id="mensaje"></div>
+        <div id="productos"></div>
+      </div>
+    </main>
+  </body>
+</html>

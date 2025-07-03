@@ -1,0 +1,24 @@
+{
+  "productos": [
+    {
+      "id": "2",
+      "nombre": "gorra",
+      "precio": 100
+    },
+    {
+      "id": "3",
+      "nombre": "Mouse",
+      "precio": 300
+    },
+    {
+      "id": "154e",
+      "nombre": "diademas",
+      "precio": 1000
+    },
+    {
+      "id": "f46f",
+      "nombre": "Pad mouse",
+      "precio": 50
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+.contenedor {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  margin: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+input,
+button {
+  width: 100%;
+  padding: 10px 0;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+button {
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+}
+#lista {
+  margin-top: 20px;
+}
+.producto {
+  background: #eee;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+#productos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 150px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
