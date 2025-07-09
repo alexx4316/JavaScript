@@ -28,9 +28,9 @@ for (const id in productos) {
 
 // Mostrar productos únicos (Set)
 const setList = document.getElementById("setProductos");
-for (const nombre of setProductos) {
+for (const id of setProductos) {
   const item = document.createElement("li");
-  item.textContent = nombre;
+  item.textContent = id;
   setList.appendChild(item);
 }
 

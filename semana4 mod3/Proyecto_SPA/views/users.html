@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script defer src="./app.js" defer></script>
+  </head>
+  <body>
+    <main class="content">
+      <h2>Gestion de Estudiantes</h2>
+      <div>
+        <button id="btn-agregar">Agregar</button>
+        <button id="btn-editar">Editar</button>
+        <button id="btn-eliminar">Eliminar</button>
+      </div>
+
+      <h2>Crear Estudiante</h2>
+      <div id="formulario">
+        <form id="form-estudiante">
+          <input type="text" name="name" placeholder="Nombre Completo" required/>
+          <input type="email" name="email" placeholder="Correo" required />
+          <input type="text" name="phone" placeholder="Teléfono" required />
+          <input type="text" name="enrollNumber" placeholder="Número de matrícula" required/>
+          <input type="text" name="dateOfAdmission" placeholder="Fecha de admisión (DD-MMM-YYYY)" required/>
+          <button type="submit" id="btn-guardar">guardar</button>
+        </form>
+      </div>
+      <div id="listar-estudiantes"></div>
+    </main>
+  </body>
+</html>

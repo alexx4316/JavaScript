@@ -76,6 +76,7 @@ async function eliminarProducto() {
     });
     if (!response) {
       mostrarMensaje("Recurso eliminado correctamente");
+      renderizarProductos();
     } else {
       console.error("Error al eliminar");
     }
@@ -107,8 +108,8 @@ async function actualizarProducto() {
       body: JSON.stringify(productoActualizado),
     });
     const data = await response.json();
-
     mostrarMensaje("Actualizacion exitosa", data);
+    renderizarProductos();
   } catch (error) {
     console.error("Error en la actualizacion del producto", error);
   }

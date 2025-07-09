@@ -1,0 +1,91 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 420px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #2d3a4a;
+}
+
+input {
+  padding: 0.6rem;
+  border: 1px solid #bcd0ee;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+input:focus {
+  border-color: #4f8cff;
+  outline: none;
+  box-shadow: 0 0 0 2px #cce0ff;
+}
+
+button {
+  padding: 0.75rem;
+  background: linear-gradient(90deg, #4f8cff 0%, #38b6ff 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  margin-bottom: 0.5rem;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #38b6ff 0%, #4f8cff 100%);
+  transform: translateY(-2px) scale(1.03);
+}
+
+#clearButton {
+  background: #f44336;
+  margin-left: 0.5rem;
+  transition: background 0.2s, transform 0.1s;
+}
+
+#clearButton:hover {
+  background: #e53935;
+  color: #fff;
+  transform: translateY(-2px) scale(1.03);
+}
+
+#output {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: #f8fafd;
+  color: #222;
+  font-size: 1.1rem;
+  min-height: 48px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  text-align: center;
+}
