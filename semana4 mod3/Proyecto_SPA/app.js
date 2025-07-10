@@ -3,8 +3,8 @@ let msgge = document.getElementById("message");
 
 // Definir rutas
 const routes = {
-   home : "./index.html",
-   users : "./views/users.html"
+   "/" : "./index.html",
+   "/users" : "./views/users.html"
 };
 
 // Mostrar mensajes
@@ -19,6 +19,7 @@ function mostrarMensaje(msg, tipo = "green") {
 // Funcion para cargar la vista
 async function cargarVista(vista) {
   const ruta = routes[vista];
+  console.log(ruta)
   if (!ruta) {
     msgge.innerHTML = `<p style="color:red">Ruta "${vista}" no definida.</p>`;
     return;
@@ -26,35 +27,19 @@ async function cargarVista(vista) {
   try {
     const res = await fetch(ruta);
     if (!res.ok) throw new Error("Vista no encontrada");
-    msgge.innerHTML = await res.text();
+    const texto = await res.text();
     iniciarLogica();
   } catch (error) {
     msgge.innerHTML = `<p style="color:red">Error: ${error.message}</p>`;
   }
 }
 
-// Manejo del hash
-function getPathFromHash(){
-  return location.hash.slice(1) || "/index.html"
-}
-
-// cargar ruta por hash 
-window.addEventListener("hashchange", () => {
-  const path = getPathFromHash();
-  cargarVista(path)
-});
-
-window.addEventListener("DOMContentLoaded", () => {
-  const path = getPathFromHash();
-  cargarVista(path)
-});
-
 // Manejo de enlaces
 document.addEventListener("click", function (e) {
-  const link = e.target.closest("a[data-link]");
+  const link = e.target.matches("[data-link]");
   if(link){
     e.preventDefault();
-    const path = link.getAttribute("href").replace("#", "");
+    const path = link.target.getAttribute("href");
     location.hash = path
   }
 });

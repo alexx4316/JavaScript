@@ -1,0 +1,24 @@
+{
+  "estudiantes": [
+    {
+      "id": 1,
+      "name": "Nombre Completo",
+      "email": "correo@ejemplo.com",
+      "phone": "1234567890",
+      "enrollNumber": "12345678901234",
+      "dateOfAdmission": "08-Dec-2021",
+      "role": "admin",
+      "password": "1234" 
+    },
+    {
+      "id": 2,
+      "name": "Usuario Normal",
+      "email": "user@ejemplo.com",
+      "phone": "0987654321",
+      "enrollNumber": "98765432109876",
+      "dateOfAdmission": "10-Jan-2022",
+      "role": "user",
+      "password": "user123"
+    }
+  ]
+}
