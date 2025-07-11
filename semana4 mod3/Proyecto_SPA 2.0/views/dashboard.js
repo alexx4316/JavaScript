@@ -69,7 +69,7 @@ export function dashboardView() {
     // Funcion de edita el usuario 
     container.querySelectorAll('.edit-user').forEach((btn) => {
       btn.addEventListener('click', async () => {
-        const userData = await getElementById(btn.dataset.id); // Busca los botones con ese selector, envia los datos a la funcion createFormComponent
+        const userData = await getUsers(btn.dataset.id); // Busca los botones con ese selector, envia los datos a la funcion createFormComponent
         const form = createFormComponent({ mode: 'edit', user: userData, onSubmit: () => window.location.reload() });
         container.appendChild(form.element);
         form.loadItems(btn.dataset.id);

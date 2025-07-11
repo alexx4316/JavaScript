@@ -1,16 +1,15 @@
-import { getUsers, createItem } from "./api";
+import { getUsers, createItem } from "../js/api.js";
 
 export async function login(email, password) {
   // Verificamos que el usuario y la contraseña son correctas y lo guardamos en el localStorage
   try {
     const users = await getUsers();
-    const user = db.users.find((u) => u.email === email && u.password === password);
+    const user = users.find((u) => u.email === email && u.password === password);
     if (!user) {
         throw new Error('Credenciales incorrectas');
     }
-
     localStorage.setItem(
-      "user",
+      'user',
       JSON.stringify({
         id: user.id,
         email: user.email,
@@ -25,26 +24,25 @@ export async function login(email, password) {
 }
 
 // Funcion para registrar un nuevo ususario
-export async function register({name, email, password, phone, enrollNumber, dateOfAdmission, role = 'visitor'}){ {  // Por defecto le agregamos el rol de visitante
+export async function register({name, email, password, phone, enrollNumber, dateOfAdmission, role = 'visitor'}){   // Por defecto le agregamos el rol de visitante
     try{
         const users = await getUsers();
         // Validamos que el correo no este registrado ya
         const existingUser = users.find((u) => u.email === email);
         if (existingUser) {
             throw new Error('El correo electrónico ya está registrado');
-        } 
+        }
         const newUser = await createItem({name, email, password, phone, enrollNumber, dateOfAdmission, role});
         return newUser;  
     } catch (error) {
         throw new Error(error.message || 'Error al registrar el usuario');
-    }
     }
 }
 
 export function logout() {
   // Elimina el usuario del localStorage y redirige
   localStorage.removeItem('user');
-  window.location.hash = '#login';
+  window.location.hash = '#/login';
 }
 
 export function isAuthenticated() {

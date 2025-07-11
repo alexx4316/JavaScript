@@ -1,14 +1,17 @@
 import { getCourses, enrollInCourse, getEnrollmentsByUser } from '../js/api.js'; // Importamos funciones 
-import { getCurrentUser } from '../js/auth.js';
+import { getCurrentUser, logout } from '../js/auth.js';
 
 // Creamos la vista publica 
 export function publicView() {
   const user = getCurrentUser();
+  console.log('Usuario actual', user)
+  console.log('Ruta actual', window.location.hash)
   const container = document.createElement('div');
   container.innerHTML = `
     <header>
       <h1>Sistema de Cursos</h1>
-      ${user ? `<div>Bienvenido, ${user.name} (<a href="#" id="logout">Cerrar sesión</a>)</div>` : ''}
+      ${user ? `<div>Bienvenido, ${user.name} (<a href="#" id="logout">Cerrar sesión</a>)</div>` :
+      `<div><a href="#/login">Iniciar sesión</a> | <a href="#/register">Registrarse</a></div>`}
     </header>
     <nav class="sidebar">
       <ul>
@@ -17,9 +20,7 @@ export function publicView() {
       </ul>
     </nav>
     <main>
-    // Si el usuario esta logeado muestra bienvenido y si no esta logueado muestra cursos disponibles
       <h2>${user ? `Bienvenido, ${user.name}` : 'Cursos Disponibles'}</h2>
-      // dependiendo si esta logeado o no muestra los cursos disponibles o los cursos inscritos
       ${window.location.hash === '#/public/my-courses' && user ? `
         <h3>Mis Cursos</h3>
         <ul id="my-courses-list"></ul>
@@ -35,8 +36,7 @@ export function publicView() {
     const logoutLink = container.querySelector('#logout');
     logoutLink.addEventListener('click', (e) => {
       e.preventDefault();
-      localStorage.removeItem('user');
-      window.location.hash = '#/login';
+      logout();
     });
   }
 

@@ -19,7 +19,7 @@ export function registerView(){
   `;
 
     // Otenemos el formulario y su mensaje de error
-  const form = document.getElementById('#registerForm');
+  const form = container.querySelector('#registerForm');
   const error = container.querySelector('#error');
 
   // Le asignamos un evento y traemos los datos del form
@@ -39,7 +39,7 @@ export function registerView(){
         await register(userData);
         error.textContent = 'Registro exitoso. redirigiendo al login....';
         setTimeout(() => {
-           window.location.hash = '#/login' 
+          window.location.hash = '#/login' 
         }, 2000);
     } catch (err) {
         error.textContent = err.messagge;

@@ -40,14 +40,14 @@ export function createFormComponent({onSubmit, mode = "read", user = null,} = {}
     `;
 
   // Referencias a los campos del formulario
-  const form = document.querySelector("#itemform");
-  const nameInput = document.querySelector("#name");
-  const emailInput = document.querySelector("#email");
-  const phoneInput = document.querySelector("#phone");
-  const enrollNumberInput = document.querySelector("#enrollNumber");
-  const dateOfAdmissionInput = document.querySelector("#dateOfAdmision");
-  const roleInput = document.querySelector("#role");
-  const message = document.querySelector("#formMessage");
+  const form = container.querySelector("#itemform");
+  const nameInput = container.querySelector("#name");
+  const emailInput = container.querySelector("#email");
+  const phoneInput = container.querySelector("#phone");
+  const enrollNumberInput = container.querySelector("#enrollNumber");
+  const dateOfAdmissionInput = container.querySelector("#dateOfAdmision");
+  const roleInput = container.querySelector("#role");
+  const message = container.querySelector("#formMessage");
 
   let editinId = user?.id || null; // si es null estamos agregando un usuario y si no es null estamos editanto el usuario con el id correspondiente
 

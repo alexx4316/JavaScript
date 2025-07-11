@@ -1,6 +1,6 @@
-import { createFormComponent } from './form.js';
-import { createCourseFormComponent } from './courseForm.js';
-import { getUsers, getCourses, deleteItem, deleteCourse } from '../js/api.js';
+import { createFormComponent } from '../components/form.js';
+import { createCourseFormComponent } from '../components/courseForm.js';
+import { getUsers, getCourses, deleteItem, deleteCourse, getCourseById, getElementById} from '../js/api.js';
 import { getCurrentUser, logout } from '../js/auth.js';
 
 export function adminView() {
@@ -53,8 +53,9 @@ export function adminView() {
     logout();
   });
 
+  // Condicion para ver usuarios
   if (isUsersView) {
-    const userForm = formView({ mode: 'create', onSubmit: () => window.location.reload() });
+    const userForm = createFormComponent({ mode: 'create', onSubmit: () => window.location.reload() });
     container.querySelector('#user-form').appendChild(userForm.element);
 
     getUsers().then((users) => {
@@ -74,6 +75,7 @@ export function adminView() {
         usersTable.appendChild(tr);
       });
 
+      // Funcion para editar el usuario
       container.querySelectorAll('.edit-user').forEach((btn) => {
         btn.addEventListener('click', async () => {
           const userData = await getElementById(btn.dataset.id);
@@ -84,6 +86,7 @@ export function adminView() {
         });
       });
 
+      // Funcion para eliminar un usuario
       container.querySelectorAll('.delete-user').forEach((btn) => {
         btn.addEventListener('click', async () => {
           try {
@@ -97,6 +100,7 @@ export function adminView() {
     });
   }
 
+  // Condicion para ver los cursos
   if (isCoursesView) {
     const courseForm = createCourseFormComponent({ mode: 'create', onSubmit: () => window.location.reload() });
     container.querySelector('#course-form').appendChild(courseForm.element);
@@ -119,6 +123,7 @@ export function adminView() {
         coursesTable.appendChild(tr);
       });
 
+      // Funcion para editar los cursos
       container.querySelectorAll('.edit-course').forEach((btn) => {
         btn.addEventListener('click', async () => {
           const courseData = await getCourseById(btn.dataset.id);
@@ -129,6 +134,7 @@ export function adminView() {
         });
       });
 
+      // Funcion para eliminar los cursos
       container.querySelectorAll('.delete-course').forEach((btn) => {
         btn.addEventListener('click', async () => {
           try {

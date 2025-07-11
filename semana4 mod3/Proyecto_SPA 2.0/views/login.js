@@ -26,7 +26,7 @@ export function loginView(){
 
         try{
             const success = await login(email, password);
-            if(!success){
+            if(success){
                 const user = JSON.parse(localStorage.getItem('user')); // Dependiendo del rol muestra el dashboard o la vista para el publico 
                 window.location.hash = user.role === 'admin' ? '#/dashboard' : '#/public'
             }
