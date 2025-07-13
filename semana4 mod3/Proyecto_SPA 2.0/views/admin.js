@@ -9,6 +9,7 @@ export function adminView() {
   const isUsersView = window.location.hash === '#/admin/users';
   const isCoursesView = window.location.hash === '#/admin/courses';
 
+  // Solo crear el contenido principal, sin header ni sidebar duplicados
   container.innerHTML = `
     <header>
       <h1>Sistema de Gestión</h1>
@@ -21,29 +22,43 @@ export function adminView() {
         <li><a href="#/admin/courses">Gestionar Cursos</a></li>
       </ul>
     </nav>
-    <main>
-      <h2>${isUsersView ? 'Gestionar Usuarios' : isCoursesView ? 'Gestionar Cursos' : 'Panel de Administrador'}</h2>
-      ${isUsersView ? `
-        <h3>Crear Usuario</h3>
-        <div id="user-form"></div>
-        <h3>Lista de Usuarios</h3>
-        <table>
-          <thead>
-            <tr><th>ID</th><th>Nombre</th><th>Email</th><th>Rol</th><th>Acciones</th></tr>
-          </thead>
-          <tbody id="users-table"></tbody>
-        </table>
-      ` : isCoursesView ? `
-        <h3>Crear Curso</h3>
-        <div id="course-form"></div>
-        <h3>Lista de Cursos</h3>
-        <table>
-          <thead>
-            <tr><th>ID</th><th>Título</th><th>Descripción</th><th>Fecha de Inicio</th><th>Duración</th><th>Acciones</th></tr>
-          </thead>
-          <tbody id="courses-table"></tbody>
-        </table>
-      ` : '<p>Seleccione una opción del menú</p>'}
+    <main class="admin-main">
+      <div class="admin-content">
+        <h2>${isUsersView ? 'Gestionar Usuarios' : isCoursesView ? 'Gestionar Cursos' : 'Panel de Administrador'}</h2>
+        ${isUsersView ? `
+          <section class="form-section">
+            <h3>Crear Usuario</h3>
+            <div id="user-form" class="form-container"></div>
+          </section>
+          <section class="table-section">
+            <h3>Lista de Usuarios</h3>
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr><th>ID</th><th>Nombre</th><th>Email</th><th>Rol</th><th>Acciones</th></tr>
+                </thead>
+                <tbody id="users-table"></tbody>
+              </table>
+            </div>
+          </section>
+        ` : isCoursesView ? `
+          <section class="form-section">
+            <h3>Crear Curso</h3>
+            <div id="course-form" class="form-container"></div>
+          </section>
+          <section class="table-section">
+            <h3>Lista de Cursos</h3>
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr><th>ID</th><th>Título</th><th>Descripción</th><th>Fecha de Inicio</th><th>Duración</th><th>Acciones</th></tr>
+                </thead>
+                <tbody id="courses-table"></tbody>
+              </table>
+            </div>
+          </section>
+        ` : '<p>Seleccione una opción del menú</p>'}
+      </div>
     </main>
   `;
 

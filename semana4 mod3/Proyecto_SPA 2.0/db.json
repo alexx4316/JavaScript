@@ -16,16 +16,17 @@
       "enrollNumber": "12345678900000",
       "dateOfAdmission": "2025-07-11",
       "role": "visitor",
+      "password": "1234",
       "id": "2"
     }
   ],
   "courses": [
     {
-      "id": "1",
       "title": "Introducción a JavaScript",
       "description": "Curso básico de JavaScript",
-      "startDate": "10-Jul-2025",
-      "duration": "4 semanas"
+      "startDate": "2025-07-16",
+      "duration": "4 semanas",
+      "id": "1"
     },
     {
       "id": "2",

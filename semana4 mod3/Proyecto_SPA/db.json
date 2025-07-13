@@ -1,5 +1,5 @@
 {
-  "Estudiantes": [
+  "estudiantes": [
     {
       "id": "1",
       "name": "Andres gonzalez",
@@ -15,78 +15,6 @@
       "phone": "3054526165",
       "enrollNumber": "3454",
       "dateOfAdmission": "25/02/2004"
-    },
-    {
-      "id": "9eb2",
-      "name": "andres",
-      "email": "andresgonzalez25022@gmail.com",
-      "phone": "3054526165",
-      "enrollNumber": "13213",
-      "dateOfAdmission": "02/02/2004"
-    },
-    {
-      "id": "b076",
-      "name": "asdasd",
-      "email": "afg@gmail.com",
-      "phone": "3054526165",
-      "enrollNumber": "13123",
-      "dateOfAdmission": "02/02/2004"
-    },
-    {
-      "id": "a11d",
-      "name": "Andres",
-      "email": "andresgonzalez25022@gmail.com",
-      "phone": "3054526165",
-      "enrollNumber": "1234",
-      "dateOfAdmission": "25/02/2025"
-    },
-    {
-      "id": "b628",
-      "name": "andres",
-      "email": "andresgonzalez25022@gmail.com",
-      "phone": "3054526165",
-      "enrollNumber": "2123123",
-      "dateOfAdmission": "20/20/2025"
-    },
-    {
-      "id": "6dec",
-      "name": "sssss|",
-      "email": "afgonzalezg454@escolme.edu.co",
-      "phone": "10105115",
-      "enrollNumber": "51051051",
-      "dateOfAdmission": "10"
-    },
-    {
-      "id": "816c",
-      "name": "sjbhjbjhb",
-      "email": "fgekiki@gghgh.com",
-      "phone": "6502",
-      "enrollNumber": "2052",
-      "dateOfAdmission": "5025"
-    },
-    {
-      "id": "8c52",
-      "name": "sfjhiuhu",
-      "email": "duhyu@dhdhd.com",
-      "phone": "251251",
-      "enrollNumber": "50511",
-      "dateOfAdmission": "510"
-    },
-    {
-      "id": "b7b7",
-      "name": "yyyy",
-      "email": "dhdh@jjf.com",
-      "phone": "5101501",
-      "enrollNumber": "510510",
-      "dateOfAdmission": "510510"
-    },
-    {
-      "id": "3e3c",
-      "name": "gdfghrd",
-      "email": "ssgsg@ssebas.com",
-      "phone": "ygyyuygu",
-      "enrollNumber": "50215",
-      "dateOfAdmission": "510510"
     }
   ]
 }

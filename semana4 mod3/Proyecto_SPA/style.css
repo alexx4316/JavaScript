@@ -1,0 +1,322 @@
+/* Reset y configuración base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+
+/* Contenedor principal */
+#root {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  min-width: 400px;
+  max-width: 1200px;
+  width: 90%;
+  margin: 20px;
+}
+
+/* ===== ESTILOS DE LOGIN ===== */
+#root h2 {
+  text-align: center;
+  color: #4a5568;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+#loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* ===== ESTILOS DE FORMULARIOS ===== */
+input {
+  padding: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  background: white;
+  transform: translateY(-2px);
+}
+
+input:hover {
+  border-color: #cbd5e0;
+}
+
+/* ===== ESTILOS DE BOTONES ===== */
+button {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Botón principal */
+button[type="submit"], #loginForm button {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+button[type="submit"]:hover, #loginForm button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Botón de logout */
+#logoutBtn {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+  padding: 0.8rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+#logoutBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+/* ===== ESTILOS DEL CRUD ===== */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+#formEstudiante {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+#formEstudiante button {
+  grid-column: 1 / -1;
+  margin-top: 1rem;
+}
+
+/* ===== ESTILOS DE TABLA ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+}
+
+thead {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+th {
+  padding: 1.2rem;
+  text-align: left;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+}
+
+td {
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+tbody tr {
+  transition: all 0.3s ease;
+}
+
+tbody tr:hover {
+  background: rgba(102, 126, 234, 0.05);
+  transform: scale(1.02);
+}
+
+tbody tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+tbody tr:nth-child(even):hover {
+  background: rgba(102, 126, 234, 0.05);
+}
+
+/* ===== BOTONES DE ACCIÓN ===== */
+.edit {
+  background: linear-gradient(135deg, #48bb78, #38a169);
+  color: white;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  box-shadow: 0 2px 8px rgba(72, 187, 120, 0.3);
+}
+
+.edit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(72, 187, 120, 0.4);
+}
+
+.delete {
+  background: linear-gradient(135deg, #f56565, #e53e3e);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  box-shadow: 0 2px 8px rgba(245, 101, 101, 0.3);
+}
+
+.delete:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 101, 101, 0.4);
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#root {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
+    margin: 10px;
+  }
+  
+  .header-section {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  #formEstudiante {
+    grid-template-columns: 1fr;
+  }
+  
+  table {
+    font-size: 0.8rem;
+  }
+  
+  th, td {
+    padding: 0.8rem 0.5rem;
+  }
+  
+  .edit, .delete {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+    margin: 0.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  #root h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ===== EFECTOS ADICIONALES ===== */
+input[type="date"] {
+  color: #4a5568;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.5);
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a6fd8, #6b4190);
+}
+
+/* Estados de validación */
+input:invalid {
+  border-color: #f56565;
+}
+
+input:valid {
+  border-color: #48bb78;
+}
+
+/* Efecto de pulso para botones importantes */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(102, 126, 234, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0); }
+}
+
+button[type="submit"]:focus {
+  animation: pulse 1.5s infinite;
+}

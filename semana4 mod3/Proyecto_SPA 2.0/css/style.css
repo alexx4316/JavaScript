@@ -1,115 +1,1529 @@
-body {
-  font-family: Arial, sans-serif;
+/* ===============================================
+   SISTEMA DE GESTIÓN EDUCATIVA - ESTILOS CSS
+   =============================================== */
+
+/* ===============================================
+   VARIABLES CSS Y CONFIGURACIÓN GLOBAL
+   =============================================== */
+:root {
+  /* Colores principales - Tema educativo */
+  --primary-color: #2563eb;          /* Azul educativo */
+  --primary-dark: #1d4ed8;           /* Azul oscuro */
+  --primary-light: #3b82f6;          /* Azul claro */
+  --secondary-color: #10b981;        /* Verde éxito */
+  --accent-color: #f59e0b;           /* Naranja acento */
+  --danger-color: #ef4444;           /* Rojo peligro */
+  
+  /* Colores de fondo */
+  --bg-primary: #f8fafc;             /* Fondo principal */
+  --bg-secondary: #ffffff;           /* Fondo secundario */
+  --bg-sidebar: #1e293b;             /* Fondo sidebar */
+  --bg-header: #0f172a;              /* Fondo header */
+  
+  /* Colores de texto */
+  --text-primary: #1e293b;           /* Texto principal */
+  --text-secondary: #64748b;         /* Texto secundario */
+  --text-light: #ffffff;             /* Texto claro */
+  --text-muted: #94a3b8;             /* Texto atenuado */
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  
+  /* Bordes */
+  --border-radius: 8px;
+  --border-radius-lg: 12px;
+  --border-color: #e2e8f0;
+  
+  /* Espaciado */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  
+  /* Fuentes */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  
+  /* Transiciones */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-base: 0.2s ease-in-out;
+  --transition-slow: 0.3s ease-in-out;
+}
+
+/* ===============================================
+   RESET Y CONFIGURACIÓN BASE
+   =============================================== */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Prevenir scroll horizontal */
+}
+
+/* ===============================================
+   HEADER - ENCABEZADO PRINCIPAL
+   =============================================== */
 header {
-  background-color: #333;
-  color: white;
-  padding: 10px 20px;
+  background: linear-gradient(135deg, var(--bg-header) 0%, var(--primary-dark) 100%);
+  color: var(--text-light);
+  padding: var(--spacing-lg) var(--spacing-xl);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 3px solid var(--primary-color);
+}
+
+header h1 {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  background: linear-gradient(45deg, var(--text-light), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 header a {
-  color: white;
+  color: var(--text-light);
   text-decoration: none;
+  font-weight: 500;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  transition: all var(--transition-base);
+  position: relative;
 }
 
 header a:hover {
-  text-decoration: underline;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
 }
 
+header a:active {
+  transform: translateY(0);
+}
+
+/* ===============================================
+   SIDEBAR - NAVEGACIÓN LATERAL
+   =============================================== */
 .sidebar {
-  width: 200px;
-  background-color: #f4f4f4;
-  padding: 10px;
+  width: 280px;
+  background: linear-gradient(180deg, var(--bg-sidebar) 0%, #334155 100%);
+  padding: var(--spacing-xl) 0;
   position: fixed;
-  top: 60px;
+  top: 80px;
   bottom: 0;
+  left: 0;
+  box-shadow: var(--shadow-lg);
+  border-right: 1px solid var(--border-color);
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
 }
 
 .sidebar ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .sidebar ul li {
-  margin: 10px 0;
+  margin: var(--spacing-sm) 0;
+  position: relative;
 }
 
 .sidebar a {
+  display: flex;
+  align-items: center;
+  color: var(--text-light);
   text-decoration: none;
-  color: #333;
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-weight: 500;
+  transition: all var(--transition-base);
+  border-left: 3px solid transparent;
+  position: relative;
+}
+
+.sidebar a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  transition: width var(--transition-base);
 }
 
 .sidebar a:hover {
-  color: #555;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--accent-color);
+  border-left-color: var(--primary-color);
+  transform: translateX(8px);
 }
 
+.sidebar a:hover::before {
+  width: 3px;
+}
+
+/* Estado activo del sidebar */
+.sidebar a.active {
+  background-color: rgba(37, 99, 235, 0.1);
+  border-left-color: var(--primary-color);
+  color: var(--primary-light);
+}
+
+/* ===============================================
+   MAIN - CONTENIDO PRINCIPAL
+   =============================================== */
 main {
-  margin-left: 220px;
-  padding: 20px;
+  margin-left: 300px; /* Aumentado para evitar superposición */
+  padding: var(--spacing-2xl);
+  min-height: calc(100vh - 80px);
+  background-color: var(--bg-primary);
+  position: relative;
+  z-index: 15;
+  width: calc(100% - 300px); /* Asegurar que el ancho respete el sidebar */
+  box-sizing: border-box;
 }
 
+/* Asegurar que TODOS los elementos dentro del main respeten el contenedor */
+main * {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Prevenir que los elementos se salgan del contenedor main */
+main > *,
+main form,
+main div,
+main table {
+  position: relative;
+  left: 0 !important;
+  right: auto !important;
+  margin-left: 0 !important;
+  float: none !important;
+}
+
+/* Regla específica para prevenir superposición con sidebar */
+main form,
+main #user-form,
+main #course-form,
+main #user-form form,
+main #course-form form {
+  position: relative !important;
+  left: 0 !important;
+  margin-left: 0 !important;
+  transform: none !important;
+  float: none !important;
+  clear: both !important;
+}
+
+main h2 {
+  color: var(--text-primary);
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+  padding-bottom: var(--spacing-md);
+}
+
+main h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: 2px;
+}
+
+main h3 {
+  color: var(--text-primary);
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  margin: var(--spacing-xl) 0 var(--spacing-lg) 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+main h3::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+}
+
+/* ===============================================
+   TABLAS - VISUALIZACIÓN DE DATOS
+   =============================================== */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
+  margin-top: var(--spacing-lg);
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
 }
 
-table th, table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
+table thead {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
 }
 
 table th {
-  background-color: #f4f4f4;
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: var(--spacing-lg);
+  text-align: left;
+  border: none;
 }
 
+table td {
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  transition: background-color var(--transition-base);
+}
+
+table tbody tr:hover {
+  background-color: rgba(37, 99, 235, 0.05);
+}
+
+table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ===============================================
+   FORMULARIOS - ESTILOS MODERNOS
+   =============================================== */
 form {
+  background-color: var(--bg-secondary);
+  padding: var(--spacing-2xl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  max-width: 400px;
+  gap: var(--spacing-lg);
+  max-width: 500px;
+  width: 100%;
+  margin: var(--spacing-xl) 0;
+  border: 1px solid var(--border-color);
+  position: relative;
+  left: 0;
+  right: auto;
+  float: none;
+  clear: both;
 }
 
-form input, form select, form textarea {
-  padding: 8px;
-  font-size: 16px;
+form h3 {
+  margin: 0 0 var(--spacing-lg) 0;
+  color: var(--text-primary);
+  font-size: var(--font-size-xl);
+  text-align: center;
 }
 
-form button {
-  padding: 10px;
-  background-color: #333;
-  color: white;
+form input,
+form select,
+form textarea {
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--font-size-base);
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  transition: all var(--transition-base);
+  font-family: inherit;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  transform: translateY(-1px);
+}
+
+form input:disabled,
+form select:disabled,
+form textarea:disabled {
+  background-color: var(--bg-primary);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ===============================================
+   BOTONES - DISEÑO ATRACTIVO
+   =============================================== */
+button,
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  font-family: inherit;
   border: none;
+  border-radius: var(--border-radius);
   cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
 }
 
-form button:hover {
-  background-color: #555;
+/* Botón primario */
+button,
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: var(--text-light);
+  box-shadow: var(--shadow-sm);
 }
 
-/* Responsividad */
+button:hover,
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+}
+
+/* Botón de editar */
+.edit-user,
+.edit-course {
+  background: linear-gradient(135deg, var(--secondary-color), #059669);
+  color: var(--text-light);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-xs);
+  margin-right: var(--spacing-sm);
+}
+
+.edit-user:hover,
+.edit-course:hover {
+  background: linear-gradient(135deg, #10b981, var(--secondary-color));
+}
+
+/* Botón de eliminar */
+.delete-user,
+.delete-course {
+  background: linear-gradient(135deg, var(--danger-color), #dc2626);
+  color: var(--text-light);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-xs);
+}
+
+.delete-user:hover,
+.delete-course:hover {
+  background: linear-gradient(135deg, #ef4444, var(--danger-color));
+}
+
+/* Botón de inscripción */
+.enroll-btn {
+  background: linear-gradient(135deg, var(--accent-color), #d97706);
+  color: var(--text-light);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-xs);
+}
+
+.enroll-btn:hover {
+  background: linear-gradient(135deg, #f59e0b, var(--accent-color));
+}
+
+/* Estados activos */
+button:active,
+.btn:active {
+  transform: translateY(0);
+}
+
+/* ===============================================
+   LISTAS Y ELEMENTOS DE DATOS
+   =============================================== */
+ul li {
+  background-color: var(--bg-secondary);
+  margin: var(--spacing-md) 0;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--primary-color);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+ul li:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
+}
+
+ul li strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Espaciado específico para listas de contenido */
+main ul {
+  margin-top: var(--spacing-lg);
+  padding-left: 0;
+}
+
+main ul:not(.sidebar ul) {
+  margin-bottom: var(--spacing-xl);
+}
+
+/* ===============================================
+   MENSAJES Y ALERTAS
+   =============================================== */
+#formMessage,
+#error {
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  text-align: center;
+  margin-top: var(--spacing-md);
+}
+
+#error {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--danger-color);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Mensaje de éxito */
+.success-message {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--secondary-color);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* ===============================================
+   ESTILOS ESPECÍFICOS PARA VISTA ADMIN
+   =============================================== */
+.admin-main {
+  margin-left: 300px;
+  padding: var(--spacing-2xl);
+  min-height: calc(100vh - 80px);
+  background-color: var(--bg-primary);
+  position: relative;
+  z-index: 15;
+  width: calc(100% - 300px);
+  box-sizing: border-box;
+}
+
+.admin-content {
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+  left: 0;
+  margin-left: 0;
+}
+
+.form-section {
+  margin-bottom: var(--spacing-2xl);
+  padding: var(--spacing-lg);
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.form-container {
+  position: relative !important;
+  left: 0 !important;
+  margin-left: 0 !important;
+  width: 100% !important;
+  max-width: 500px !important;
+  float: none !important;
+  clear: both !important;
+}
+
+.table-section {
+  margin-bottom: var(--spacing-2xl);
+  padding: var(--spacing-lg);
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.table-wrapper {
+  position: relative;
+  overflow-x: auto;
+  margin-top: var(--spacing-lg);
+}
+
+.table-wrapper table {
+  position: relative;
+  left: 0;
+  margin-left: 0;
+  width: 100%;
+}
+
+/* Asegurar que los formularios en admin no se superpongan */
+.admin-main .form-container form,
+.admin-main #user-form form,
+.admin-main #course-form form {
+  position: relative !important;
+  left: 0 !important;
+  margin-left: 0 !important;
+  transform: none !important;
+  float: none !important;
+  clear: both !important;
+  width: 100% !important;
+  max-width: 450px !important;
+}
+
+/* ===============================================
+   CONTENEDORES DINÁMICOS Y FORMULARIOS
+   =============================================== */
+#user-form,
+#course-form {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: var(--spacing-xl) 0;
+  padding: 0;
+  clear: both;
+  z-index: 10;
+}
+
+/* Asegurar que los formularios dentro de estos contenedores tengan el espaciado correcto */
+#user-form form,
+#course-form form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  margin: 0;
+  padding: var(--spacing-2xl);
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  left: 0 !important;
+  right: auto !important;
+  float: none !important;
+  clear: both !important;
+}
+
+/* Contenedores de elementos creados dinámicamente */
+#user-form > div,
+#course-form > div {
+  position: relative;
+  width: 100%;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Prevenir superposición de formularios editables */
+.form-container {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: var(--spacing-xl) 0;
+  clear: both;
+}
+
+/* Estilos para cuando se cargan formularios de edición */
+.editing-form {
+  position: relative;
+  z-index: 15;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+/* Asegurar que las tablas estén separadas de los formularios */
+table + #user-form,
+table + #course-form,
+#user-form + table,
+#course-form + table {
+  margin-top: var(--spacing-2xl);
+}
+
+/* Forzar display correcto para elementos dinámicos */
+main div[id$="-form"] {
+  display: block !important;
+  position: relative !important;
+  float: none !important;
+  clear: both !important;
+  width: 100% !important;
+  margin: var(--spacing-xl) 0 !important;
+}
+
+/* Asegurar que los formularios dentro de contenedores dinámicos se muestren correctamente */
+main div[id$="-form"] form {
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+  float: none !important;
+  clear: both !important;
+}
+
+/* Prevenir elementos flotantes que causen superposición */
+main::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ===============================================
+   LAYOUT ESPECÍFICO PARA ADMIN Y CONTENIDO
+   =============================================== */
+/* Contenedor principal para todas las vistas */
+#app,
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  display: block;
+}
+
+/* Estado de carga mejorado */
+.app-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  background: linear-gradient(135deg, var(--bg-primary) 0%, #f1f5f9 100%);
+}
+
+/* Espaciado específico para elementos dentro del main */
+main > * {
+  clear: both;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Mejorar espaciado de tablas en vista admin */
+main table {
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+  clear: both;
+}
+
+/* Espaciado para formularios en vista admin */
+main #user-form,
+main #course-form {
+  margin-bottom: var(--spacing-2xl);
+  clear: both;
+}
+
+/* Prevenir superposición de elementos flotantes */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Espaciado específico para vistas con sidebar */
+main h2:first-child {
+  margin-top: 0;
+  padding-top: var(--spacing-md);
+}
+
+/* Asegurar que los elementos de contenido no se peguen */
+main > div,
+main > form,
+main > table {
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Contenedores principales de las vistas */
+main > div {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+/* Separación específica entre secciones en vista admin */
+main h3 + div,
+main h3 + table {
+  margin-top: var(--spacing-lg);
+}
+
+/* Espaciado entre formularios y tablas consecutivos */
+div + table,
+form + table,
+table + div,
+table + form {
+  margin-top: var(--spacing-2xl);
+}
+
+/* ===============================================
+   ESTADOS DE CARGA Y VACÍO
+   =============================================== */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2xl);
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+}
+
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-2xl);
+  color: var(--text-muted);
+}
+
+/* ===============================================
+   RESPONSIVIDAD - DISEÑO ADAPTATIVO
+   =============================================== */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 250px;
+  }
+  
+  main {
+    margin-left: 270px; /* Ajustado para mantener espaciado */
+    padding: var(--spacing-xl);
+    width: calc(100% - 270px);
+  }
+}
+
 @media (max-width: 768px) {
+  header {
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+  
+  header h1 {
+    font-size: var(--font-size-xl);
+  }
+  
   .sidebar {
     width: 100%;
     position: static;
+    top: auto;
+    height: auto;
+    max-height: 200px;
+    overflow-x: auto;
   }
+  
+  .sidebar ul {
+    display: flex;
+    padding: 0 var(--spacing-md);
+  }
+  
+  .sidebar ul li {
+    margin: 0;
+    min-width: max-content;
+  }
+  
+  .sidebar a {
+    padding: var(--spacing-md);
+    white-space: nowrap;
+  }
+  
   main {
     margin-left: 0;
+    padding: var(--spacing-lg);
+    width: 100%;
+  }
+  
+  table {
+    font-size: var(--font-size-xs);
+  }
+  
+  table th,
+  table td {
+    padding: var(--spacing-sm);
+  }
+  
+  form {
+    padding: var(--spacing-lg);
+    max-width: 100%;
   }
 }
 
-/* Accesibilidad */
-button, a {
-  outline: none;
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    text-align: center;
+  }
+  
+  main {
+    padding: var(--spacing-md);
+  }
+  
+  main h2 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  .sidebar {
+    max-height: 150px;
+  }
 }
 
-button:focus, a:focus {
-  outline: 2px solid blue;
+/* ===============================================
+   ACCESIBILIDAD Y FOCUS
+   =============================================== */
+*:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+button:focus,
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Modo de alto contraste */
+@media (prefers-contrast: high) {
+  :root {
+    --primary-color: #000080;
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --border-color: #000000;
+  }
+}
+
+/* Modo oscuro para el futuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --border-color: #334155;
+  }
+}
+
+/* ===============================================
+   ANIMACIONES Y TRANSICIONES AVANZADAS
+   =============================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* ===============================================
+   UTILIDADES ADICIONALES
+   =============================================== */
+.text-center {
+  text-align: center;
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-success {
+  color: var(--secondary-color);
+}
+
+.text-danger {
+  color: var(--danger-color);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.mt-lg {
+  margin-top: var(--spacing-lg);
+}
+
+.mb-lg {
+  margin-bottom: var(--spacing-lg);
+}
+
+.p-lg {
+  padding: var(--spacing-lg);
+}
+
+.shadow {
+  box-shadow: var(--shadow-md);
+}
+
+.rounded {
+  border-radius: var(--border-radius);
+}
+
+/* ===============================================
+   ESTILOS ESPECÍFICOS PARA VISTA DASHBOARD
+   =============================================== */
+.dashboard-main {
+  margin-left: 300px;
+  padding: var(--spacing-2xl);
+  min-height: calc(100vh - 80px);
+  background-color: var(--bg-primary);
+  position: relative;
+  z-index: 15;
+  width: calc(100% - 300px);
+  box-sizing: border-box;
+}
+
+.dashboard-content {
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+  left: 0;
+  margin-left: 0;
+}
+
+/* ===============================================
+   ESTILOS ESPECÍFICOS PARA VISTA ADMIN
+   =============================================== */
+.admin-main {
+  margin-left: 300px;
+  padding: var(--spacing-2xl);
+  min-height: calc(100vh - 80px);
+  background-color: var(--bg-primary);
+  position: relative;
+  z-index: 15;
+  width: calc(100% - 300px);
+  box-sizing: border-box;
+}
+
+.admin-content {
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+  left: 0;
+  margin-left: 0;
+}
+
+.form-section {
+  margin-bottom: var(--spacing-2xl);
+  padding: var(--spacing-lg);
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.form-container {
+  position: relative !important;
+  left: 0 !important;
+  margin-left: 0 !important;
+  width: 100% !important;
+  max-width: 500px !important;
+  float: none !important;
+  clear: both !important;
+}
+
+.table-section {
+  margin-bottom: var(--spacing-2xl);
+  padding: var(--spacing-lg);
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.table-wrapper {
+  position: relative;
+  overflow-x: auto;
+  margin-top: var(--spacing-lg);
+}
+
+.table-wrapper table {
+  position: relative;
+  left: 0;
+  margin-left: 0;
+  width: 100%;
+}
+
+/* Asegurar que los formularios en admin no se superpongan */
+.admin-main .form-container form,
+.admin-main #user-form form,
+.admin-main #course-form form {
+  position: relative !important;
+  left: 0 !important;
+  margin-left: 0 !important;
+  transform: none !important;
+  float: none !important;
+  clear: both !important;
+  width: 100% !important;
+  max-width: 450px !important;
+}
+
+/* ===============================================
+   CONTENEDORES DINÁMICOS Y FORMULARIOS
+   =============================================== */
+#user-form,
+#course-form {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: var(--spacing-xl) 0;
+  padding: 0;
+  clear: both;
+  z-index: 10;
+}
+
+/* Asegurar que los formularios dentro de estos contenedores tengan el espaciado correcto */
+#user-form form,
+#course-form form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  margin: 0;
+  padding: var(--spacing-2xl);
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  left: 0 !important;
+  right: auto !important;
+  float: none !important;
+  clear: both !important;
+}
+
+/* Contenedores de elementos creados dinámicamente */
+#user-form > div,
+#course-form > div {
+  position: relative;
+  width: 100%;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Prevenir superposición de formularios editables */
+.form-container {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: var(--spacing-xl) 0;
+  clear: both;
+}
+
+/* Estilos para cuando se cargan formularios de edición */
+.editing-form {
+  position: relative;
+  z-index: 15;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+/* Asegurar que las tablas estén separadas de los formularios */
+table + #user-form,
+table + #course-form,
+#user-form + table,
+#course-form + table {
+  margin-top: var(--spacing-2xl);
+}
+
+/* Forzar display correcto para elementos dinámicos */
+main div[id$="-form"] {
+  display: block !important;
+  position: relative !important;
+  float: none !important;
+  clear: both !important;
+  width: 100% !important;
+  margin: var(--spacing-xl) 0 !important;
+}
+
+/* Asegurar que los formularios dentro de contenedores dinámicos se muestren correctamente */
+main div[id$="-form"] form {
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+  float: none !important;
+  clear: both !important;
+}
+
+/* Prevenir elementos flotantes que causen superposición */
+main::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ===============================================
+   LAYOUT ESPECÍFICO PARA ADMIN Y CONTENIDO
+   =============================================== */
+/* Contenedor principal para todas las vistas */
+#app,
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  display: block;
+}
+
+/* Estado de carga mejorado */
+.app-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  background: linear-gradient(135deg, var(--bg-primary) 0%, #f1f5f9 100%);
+}
+
+/* Espaciado específico para elementos dentro del main */
+main > * {
+  clear: both;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Mejorar espaciado de tablas en vista admin */
+main table {
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+  clear: both;
+}
+
+/* Espaciado para formularios en vista admin */
+main #user-form,
+main #course-form {
+  margin-bottom: var(--spacing-2xl);
+  clear: both;
+}
+
+/* Prevenir superposición de elementos flotantes */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Espaciado específico para vistas con sidebar */
+main h2:first-child {
+  margin-top: 0;
+  padding-top: var(--spacing-md);
+}
+
+/* Asegurar que los elementos de contenido no se peguen */
+main > div,
+main > form,
+main > table {
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Contenedores principales de las vistas */
+main > div {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+/* Separación específica entre secciones en vista admin */
+main h3 + div,
+main h3 + table {
+  margin-top: var(--spacing-lg);
+}
+
+/* Espaciado entre formularios y tablas consecutivos */
+div + table,
+form + table,
+table + div,
+table + form {
+  margin-top: var(--spacing-2xl);
+}
+
+/* ===============================================
+   ESTADOS DE CARGA Y VACÍO
+   =============================================== */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2xl);
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+}
+
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-2xl);
+  color: var(--text-muted);
+}
+
+/* ===============================================
+   RESPONSIVIDAD - DISEÑO ADAPTATIVO
+   =============================================== */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 250px;
+  }
+  
+  main {
+    margin-left: 270px; /* Ajustado para mantener espaciado */
+    padding: var(--spacing-xl);
+    width: calc(100% - 270px);
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+  
+  header h1 {
+    font-size: var(--font-size-xl);
+  }
+  
+  .sidebar {
+    width: 100%;
+    position: static;
+    top: auto;
+    height: auto;
+    max-height: 200px;
+    overflow-x: auto;
+  }
+  
+  .sidebar ul {
+    display: flex;
+    padding: 0 var(--spacing-md);
+  }
+  
+  .sidebar ul li {
+    margin: 0;
+    min-width: max-content;
+  }
+  
+  .sidebar a {
+    padding: var(--spacing-md);
+    white-space: nowrap;
+  }
+  
+  main {
+    margin-left: 0;
+    padding: var(--spacing-lg);
+    width: 100%;
+  }
+  
+  table {
+    font-size: var(--font-size-xs);
+  }
+  
+  table th,
+  table td {
+    padding: var(--spacing-sm);
+  }
+  
+  form {
+    padding: var(--spacing-lg);
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    text-align: center;
+  }
+  
+  main {
+    padding: var(--spacing-md);
+  }
+  
+  main h2 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  .sidebar {
+    max-height: 150px;
+  }
+}
+
+/* ===============================================
+   ACCESIBILIDAD Y FOCUS
+   =============================================== */
+*:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+button:focus,
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Modo de alto contraste */
+@media (prefers-contrast: high) {
+  :root {
+    --primary-color: #000080;
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --border-color: #000000;
+  }
+}
+
+/* Modo oscuro para el futuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --border-color: #334155;
+  }
+}
+
+/* ===============================================
+   ANIMACIONES Y TRANSICIONES AVANZADAS
+   =============================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* ===============================================
+   UTILIDADES ADICIONALES
+   =============================================== */
+.text-center {
+  text-align: center;
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-success {
+  color: var(--secondary-color);
+}
+
+.text-danger {
+  color: var(--danger-color);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.mt-lg {
+  margin-top: var(--spacing-lg);
+}
+
+.mb-lg {
+  margin-bottom: var(--spacing-lg);
+}
+
+.p-lg {
+  padding: var(--spacing-lg);
+}
+
+.shadow {
+  box-shadow: var(--shadow-md);
+}
+
+.rounded {
+  border-radius: var(--border-radius);
 }

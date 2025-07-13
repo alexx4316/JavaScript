@@ -25,22 +25,32 @@ export function dashboardView() {
         <li><a href="#/admin/courses">Gestionar Cursos</a></li>
       </ul>
     </nav>
-    <main>
-      <h2>Dashboard Administrativo</h2>
-      <h3>Usuarios</h3>
-      <table>
-        <thead>
-          <tr><th>ID</th><th>Nombre</th><th>Email</th><th>Rol</th><th>Acciones</th></tr>
-        </thead>
-        <tbody id="users-table"></tbody>
-      </table>
-      <h3>Cursos</h3>
-      <table>
-        <thead>
-          <tr><th>ID</th><th>Título</th><th>Descripción</th><th>Fecha de Inicio</th><th>Duración</th><th>Acciones</th></tr>
-        </thead>
-        <tbody id="courses-table"></tbody>
-      </table>
+    <main class="dashboard-main">
+      <div class="dashboard-content">
+        <h2>Dashboard Administrativo</h2>
+        <section class="table-section">
+          <h3>Usuarios</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr><th>ID</th><th>Nombre</th><th>Email</th><th>Rol</th><th>Acciones</th></tr>
+              </thead>
+              <tbody id="users-table"></tbody>
+            </table>
+          </div>
+        </section>
+        <section class="table-section">
+          <h3>Cursos</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr><th>ID</th><th>Título</th><th>Descripción</th><th>Fecha de Inicio</th><th>Duración</th><th>Acciones</th></tr>
+              </thead>
+              <tbody id="courses-table"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
     </main>
   `;
 
